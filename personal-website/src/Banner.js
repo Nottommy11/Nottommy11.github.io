@@ -5,7 +5,7 @@ const Banner = () => {
             <div className="banner">
                 <div className="container">
                     <div className="row">
-                        <div className="col-lg-9 offest-lg-3 mx-auto">
+                        <div className="col-lg-9 offset-lg-3 mx-auto">
                             <div className="caption-text text-center">
                                 <h3 className="brand">{
                                     " "
