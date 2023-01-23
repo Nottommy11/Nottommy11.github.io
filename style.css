@@ -1,0 +1,323 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #3d3d3d;
+  background-image: linear-gradient(
+    270deg,
+    #2b2b2b 0%,
+    #3d3d3d 50%,
+    #2b2b2b 100%
+  );
+  min-height: 100vh;
+  color: white;
+  font-family: "Roboto", sans-serif;
+}
+
+.top-nav {
+  background-color: #474747;
+  color: white;
+  padding: 0.5rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  font-size: 1.2rem;
+  min-width: 20rem;
+}
+
+.nav-item:nth-child(1) {
+  justify-content: flex-start;
+}
+
+.nav-item:nth-child(2) {
+  justify-content: center;
+}
+
+.nav-item:last-child {
+  justify-content: flex-end;
+}
+
+.home-btn {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  color: white;
+  font-size: 1.2rem;
+  user-select: none;
+}
+
+.home-btn:hover {
+  scale: 1.02;
+}
+
+.search-container {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  border-radius: 10px;
+}
+
+.search-input {
+  border: none;
+  border-radius: 5px 0px 0px 5px;
+  color: black;
+  height: 2rem;
+  font-size: 1rem;
+  padding: 0.5rem;
+}
+
+.search-input::placeholder {
+  color: black;
+}
+
+.search-btn {
+  border: none;
+  border-radius: 0px 5px 5px 0px;
+  background-color: white;
+  width: 2rem;
+  height: 2rem;
+  padding: 0.5rem;
+  cursor: pointer;
+  user-select: none;
+}
+
+.search-btn:hover {
+  background-color: #202020;
+  color: rgb(0, 209, 209);
+}
+
+.bi-search {
+  width: 2.5rem;
+  height: 2.5rem;
+  pointer-events: none;
+}
+
+.profile-btn {
+  border: none;
+  background-color: #474747;
+  border-radius: 50%;
+  width: 4rem;
+  height: 4rem;
+  padding: 0.5rem;
+  cursor: pointer;
+  font-size: 2.2rem;
+  color: white;
+}
+
+.profile-btn:hover {
+  color: rgb(0, 209, 209);
+}
+
+.bi-person-circle {
+  background: transparent;
+  pointer-events: none;
+}
+
+.tabs-container {
+  min-height: 2rem;
+  background-color: white;
+  border: none;
+  border-radius: 0px 0px 20px 20px;
+  display: flex;
+  align-items: flex-end;
+}
+
+.tab-list {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  flex-direction: row;
+  padding-left: 1.5rem;
+  list-style: none;
+  max-width: 90%;
+}
+
+.tab-btn {
+  border: none;
+  background-color: #474747;
+  color: black;
+  font-size: 1rem;
+  padding: 0 1.5rem;
+  border-radius: 12px 12px 0px 0px;
+  margin-right: 0.5rem;
+  cursor: pointer;
+}
+
+.tab-btn:hover {
+  box-shadow: rgba(255, 255, 255, 0.1) inset 0 0 5px 2px;
+}
+
+.tab-btn:nth-child(even) {
+  background-color: rgb(0, 209, 209);
+}
+.tab-btn:nth-child(odd) {
+  background-color: rgb(205, 33, 33);
+}
+
+.tab-item {
+  padding: 0.2rem 0.2rem;
+  pointer-events: none;
+  user-select: none;
+}
+
+.add-tab-btn {
+  border: none;
+  background-color: #474747;
+  border-radius: 12px;
+  margin-bottom: 1px;
+  width: 1.4rem;
+  height: 1.4rem;
+  cursor: pointer;
+  font-size: 1rem;
+  color: white;
+}
+
+.add-tab-btn:hover {
+  color: rgb(0, 209, 209);
+  background-color: #545454;
+}
+
+.bi-plus {
+  pointer-events: none;
+  user-select: none;
+}
+
+.todo-container {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: column;
+  padding: 1rem;
+}
+
+.add-todo-btn {
+  border: 1px solid white;
+  background-color: #474747;
+  border-radius: 5px;
+  width: 7rem;
+  height: 7rem;
+  font-size: 6.8rem;
+  cursor: pointer;
+  width: 100%;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  color: white;
+}
+
+.add-todo-btn:hover {
+  color: rgb(0, 209, 209);
+  background-color: #545454;
+}
+
+.todo-list {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  list-style: none;
+  width: 100%;
+}
+
+.todo-item {
+  margin-top: 0.75rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid white;
+  border-radius: 5px;
+  width: 100%;
+  height: 7rem;
+}
+
+.todo-item:hover {
+  box-shadow: white inset 0 0 25px 0;
+}
+
+.todo-img {
+  margin: 0.5rem;
+  max-height: 6rem;
+  aspect-ratio: 16/9;
+  border-radius: 10px;
+  border: 1px solid white;
+  object-fit: cover;
+  cursor: pointer;
+  user-select: none;
+}
+
+.todo-img:hover {
+  transform: scale(1.2);
+}
+
+.todo-name {
+  padding: 0.5rem;
+  font-size: 1.2rem;
+  color: white;
+  width: 100%;
+}
+
+.todo-options {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.todo-complete-btn {
+  border: none;
+  background-color: transparent;
+  color: white;
+  font-size: 2.2rem;
+  cursor: pointer;
+  margin-right: 4rem;
+}
+
+.todo-complete-btn:hover {
+  color: rgb(34, 218, 50);
+}
+
+.bi-check-square {
+  pointer-events: none;
+}
+
+.todo-settings-btn {
+  border: none;
+  background-color: transparent;
+  color: white;
+  font-size: 2.2rem;
+  cursor: pointer;
+  margin-right: 4rem;
+}
+
+.todo-settings-btn:hover {
+  color: rgb(0, 209, 209);
+}
+
+.bi-gear {
+  pointer-events: none;
+}
+
+.todo-delete-btn {
+  border: none;
+  background-color: transparent;
+  color: white;
+  font-size: 2.2rem;
+  cursor: pointer;
+  padding-right: 4rem;
+}
+
+.todo-delete-btn:hover {
+  color: red;
+}
+
+.bi-trash3 {
+  pointer-events: none;
+}
