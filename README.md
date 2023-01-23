@@ -1,7 +1,7 @@
 # Todo-Manager
 This repository is my attempt at developing a website and hopefully much more, as my outline and further documentation will show.
 
-Check out the [current deployment!]: https://nottommy11.github.io/index.html
+Check out the [current deployment!][Deployment]
 
 ---
 ## Outline
@@ -50,3 +50,8 @@ This section outlines what I hope to get to with this project.
 <div name="documentation"/>
 
 This will include information about how I would like this project to look and perhaps some resources that helped me along the way.
+
+
+
+
+[Deployment]: https://nottommy11.github.io/index.html
