@@ -153,14 +153,15 @@ body {
 }
 
 .tab-btn:hover {
-  box-shadow: rgba(255, 255, 255, 0.1) inset 0 0 5px 2px;
+  box-shadow: rgba(31, 31, 31, 0.3) inset 0 0 100px 50px;
+  color: white;
 }
 
 .tab-btn:nth-child(even) {
-  background-color: rgb(0, 209, 209);
+  background-color: #f28b82;
 }
 .tab-btn:nth-child(odd) {
-  background-color: rgb(205, 33, 33);
+  background-color: #8ab4f8;
 }
 
 .tab-item {
