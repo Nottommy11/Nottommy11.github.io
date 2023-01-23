@@ -1,4 +1,4 @@
-alert('Just click on the "+" icons!');
+//alert('Just click on the "+" icons!');
 
 //SELECTORS
 const tabList = document.querySelector(".tab-list");
@@ -72,4 +72,29 @@ function addTodo(event) {
   todoDeleteBtn.appendChild(deleteIcon);
 
   todoList.appendChild(todoItem);
+}
+
+function statusCheck(e) {
+  const item = e.target;
+
+  console.log("hey");
+  //DELETE TODO
+  if (item.classList[0] === "todo-delete-btn") {
+    console.log("hey");
+
+    const todo = item.parentElement.parentElement;
+    //Animation
+    todo.classList.add("fall");
+    todo.addEventListener("transitionend", function () {
+      todo.remove();
+    });
+  }
+
+  //CHECK MARK
+  if (item.classList[0] === "todo-complete-btn") {
+    console.log("hey");
+
+    const todo = item.parentElement.parentElement;
+    todo.classList.toggle("completed");
+  }
 }

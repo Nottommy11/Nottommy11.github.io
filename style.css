@@ -238,6 +238,7 @@ body {
   border-radius: 5px;
   width: 100%;
   height: 7rem;
+  transition: all 3 ease;
 }
 
 .todo-item:hover {
@@ -287,6 +288,11 @@ body {
   color: rgb(34, 218, 50);
 }
 
+.completed {
+  text-decoration: line-through;
+  opacity: 0.5;
+}
+
 .bi-check-square {
   pointer-events: none;
 }
@@ -314,11 +320,16 @@ body {
   color: white;
   font-size: 2.2rem;
   cursor: pointer;
-  padding-right: 4rem;
+  margin-right: 4rem;
 }
 
 .todo-delete-btn:hover {
   color: red;
+}
+
+.fall {
+  transform: translateY(8rem) rotate(20deg);
+  opacity: 0;
 }
 
 .bi-trash3 {
