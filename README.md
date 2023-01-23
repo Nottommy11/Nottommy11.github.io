@@ -1,6 +1,8 @@
 # Todo-Manager
 This repository is my attempt at developing a website and hopefully much more, as my outline and further documentation will show.
 
+Check out the [current deployment!]: https://nottommy11.github.io/index.html
+
 ---
 ## Outline
 
