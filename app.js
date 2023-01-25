@@ -1,4 +1,4 @@
-//alert('Just click on the "+" icons!');
+alert('Just click on the "+" icons!');
 
 //SELECTORS
 
