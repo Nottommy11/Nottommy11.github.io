@@ -19,7 +19,7 @@ body {
 
 input,
 textarea {
-  appearance: none;
+  /*appearance: none;*/
   outline: none;
   border: none;
   background-color: transparent;
@@ -341,7 +341,7 @@ label {
 
 .add-todo-container {
   width: 500px;
-  height: 450px;
+  height: 475px;
   background-color: #9f9f9f;
   position: absolute;
   top: 0;
@@ -379,6 +379,33 @@ label {
   color: black;
 }
 
+.add-todo-check-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  margin-top: -10px;
+}
+
+.add-todo-autofill {
+  color: black;
+  font-size: 1rem;
+  width: 1rem;
+  height: 1rem;
+  background-color: white;
+  margin-top: 20px;
+  margin-right: 5px;
+  border-radius: 5px;
+  border: 1px solid black;
+  cursor: pointer;
+  user-select: none;
+  transition: all 0.3s ease;
+}
+
+.add-todo-autofill:hover {
+  scale: 1.1;
+}
+
 .add-todo-link,
 .add-todo-name,
 .add-todo-desc {
@@ -410,6 +437,7 @@ label {
   font-size: 25px;
   font-weight: 700;
   cursor: pointer;
+  margin-top: 20px;
 }
 
 .add-todo-submit:hover {

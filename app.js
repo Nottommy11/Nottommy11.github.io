@@ -17,6 +17,7 @@ const todoButton = document.querySelector(".add-todo-btn");
 const addTodoContainer = document.querySelector(".add-todo-container");
 const closeAddTodo = document.querySelector(".close-add-todo-btn");
 const addTodoForm = document.querySelector(".add-todo-form");
+const addTodoAutofill = document.querySelector(".add-todo-autofill");
 const addTodoLink = document.querySelector(".add-todo-link");
 const addTodoName = document.querySelector(".add-todo-name");
 const addTodoDesc = document.querySelector(".add-todo-desc");
@@ -62,6 +63,21 @@ closeAddTodo.addEventListener("click", function () {
   addTodoContainer.style.display = "none";
 });
 
+addTodoAutofill.addEventListener("click", function () {
+  if (addTodoLink.value == "") {
+    alert("Please enter a link first!");
+    addTodoAutofill.checked = false;
+    return;
+  }
+  if (addTodoAutofill.checked) {
+    addTodoName.value = "Autofilled!";
+    addTodoDesc.value = "This is an autofilled todo!";
+  } else {
+    addTodoName.value = "";
+    addTodoDesc.value = "";
+  }
+});
+
 addTodoForm.addEventListener("submit", function (e) {
   e.preventDefault();
 
@@ -88,6 +104,7 @@ addTodoForm.addEventListener("submit", function (e) {
   addTodoLink.value = "";
   addTodoName.value = "";
   addTodoDesc.value = "";
+  addTodoAutofill.checked = false;
 });
 
 //FUNCTIONS
@@ -272,5 +289,5 @@ function get_youtube_thumbnail(url, quality) {
       return thumbnail;
     }
   }
-  return false;
+  return "./img/youtube.jpg";
 }
