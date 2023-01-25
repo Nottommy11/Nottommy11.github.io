@@ -341,7 +341,7 @@ label {
 
 .add-todo-container {
   width: 500px;
-  height: 350px;
+  height: 450px;
   background-color: #9f9f9f;
   position: absolute;
   top: 0;
@@ -379,6 +379,7 @@ label {
   color: black;
 }
 
+.add-todo-link,
 .add-todo-name,
 .add-todo-desc {
   padding: 10px;
@@ -389,6 +390,7 @@ label {
   border-radius: 5px;
 }
 
+.add-todo-link,
 .add-todo-name,
 .add-todo-desc::placeholder {
   color: rgb(83, 82, 82);

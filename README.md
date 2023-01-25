@@ -21,12 +21,12 @@ This section outlines what this website has to at least accomplish to provide us
 
 Users are able to:
 - [ ] Create accounts
-- [ ] Add new tabs
-- [ ] Add new todos
+- [X] Add new tabs
+- [X] Add new todos
 - [ ] Search their todos by keywords
 - [ ] Navigate their tabs and only see selected todos
-- [ ] Mark a todo as completed
-- [ ] Delete a todo
+- [X] Mark a todo as completed
+- [X] Delete a todo
 - [ ] Select settings related to their todo
 - [ ] Open a new tab of their todo
 - [ ] Open all todos in a new window/group

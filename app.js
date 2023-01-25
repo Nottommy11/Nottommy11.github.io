@@ -1,4 +1,4 @@
-alert('Just click on the "+" icons!');
+//alert('Just click on the "+" icons!');
 
 //SELECTORS
 
@@ -17,6 +17,7 @@ const todoButton = document.querySelector(".add-todo-btn");
 const addTodoContainer = document.querySelector(".add-todo-container");
 const closeAddTodo = document.querySelector(".close-add-todo-btn");
 const addTodoForm = document.querySelector(".add-todo-form");
+const addTodoLink = document.querySelector(".add-todo-link");
 const addTodoName = document.querySelector(".add-todo-name");
 const addTodoDesc = document.querySelector(".add-todo-desc");
 
@@ -64,18 +65,27 @@ closeAddTodo.addEventListener("click", function () {
 addTodoForm.addEventListener("submit", function (e) {
   e.preventDefault();
 
+  const link = addTodoLink.value;
   const name = addTodoName.value;
   const desc = addTodoDesc.value;
+
+  if (!link) {
+    alert("Please enter a link!");
+    return;
+  }
+
+  const thumbnail = get_youtube_thumbnail(link, "max");
 
   if (!name) {
     alert("Please enter a todo name!");
     return;
   }
 
-  addTodo(name, desc);
+  addTodo(thumbnail, name, desc);
 
   addTodoContainer.style.display = "none";
 
+  addTodoLink.value = "";
   addTodoName.value = "";
   addTodoDesc.value = "";
 });
@@ -122,7 +132,7 @@ function tabStatusCheck(e) {
 }
 
 //TODOS
-function addTodo(name, desc) {
+function addTodo(thumbnail, name, desc) {
   //Prevent form from submitting
   event.preventDefault();
 
@@ -130,7 +140,7 @@ function addTodo(name, desc) {
   todoItem.classList.add("todo-item");
 
   const todoImg = document.createElement("img");
-  todoImg.src = "./img/youtube.jpg";
+  todoImg.src = thumbnail;
   todoImg.classList.add("todo-img");
   todoItem.appendChild(todoImg);
 
@@ -231,4 +241,36 @@ function todoStatusCheck(e) {
       item.classList.toggle("settings-displayed");
     }
   }
+}
+
+//TESTING GET YOUTUBE THUMBNAIL
+function get_youtube_thumbnail(url, quality) {
+  if (url) {
+    var video_id, thumbnail, result;
+    if ((result = url.match(/youtube\.com.*(\?v=|\/embed\/)(.{11})/))) {
+      video_id = result.pop();
+    } else if ((result = url.match(/youtu.be\/(.{11})/))) {
+      video_id = result.pop();
+    }
+
+    if (video_id) {
+      if (typeof quality == "undefined") {
+        quality = "high";
+      }
+
+      var quality_key = "maxresdefault"; // Max quality
+      if (quality == "low") {
+        quality_key = "sddefault";
+      } else if (quality == "medium") {
+        quality_key = "mqdefault";
+      } else if (quality == "high") {
+        quality_key = "hqdefault";
+      }
+
+      var thumbnail =
+        "http://img.youtube.com/vi/" + video_id + "/" + quality_key + ".jpg";
+      return thumbnail;
+    }
+  }
+  return false;
 }
