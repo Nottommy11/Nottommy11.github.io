@@ -43,6 +43,7 @@ This section outlines what I hope to get to with this project.
 - [ ] Get YouTube thumbnails via either an API or some other method
 - [ ] Automatically get a thumbnail of a saved todo and allow the user to change that thumbnail
 - [ ] Store data in a database
+- [ ] Load todos from bookmarks of chosen browser
 
 ---
 

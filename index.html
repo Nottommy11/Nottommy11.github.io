@@ -42,17 +42,82 @@
     </nav>
 
     <div class="tabs-container">
-      <div class="tab-list"></div>
+      <div class="tab-list">
+        <!-- <button class="tab-btn">
+          <div class="tab-item">Example Tab</div>
+          <button class="tab-delete-btn">
+            <i class="bi bi-x"></i>
+          </button>
+        </button> -->
+      </div>
       <button class="add-tab-btn">
         <i class="bi bi-plus bi-tab-btn"></i>
       </button>
+    </div>
+
+    <div class="add-tab-container">
+      <button class="close-add-tab-btn">
+        <i class="bi bi-x"></i>
+      </button>
+      <form class="add-tab-form">
+        <h1 class="add-tab-text">Add a Tab</h1>
+        <label>*Tab Name</label>
+        <input type="text" placeholder="React" class="add-tab-name" />
+        <input type="submit" class="add-tab-submit" value="Add Tab" />
+      </form>
     </div>
 
     <div class="todo-container">
       <button class="add-todo-btn">
         <i class="bi bi-plus"></i>
       </button>
-      <div class="todo-list"></div>
+
+      <div class="todo-list">
+        <!-- 
+        <div class="todo-item">
+          <img src="./img/youtube.jpg" class="todo-img" />
+          <div class="todo-text-container">
+            <div class="todo-name">Example Name</div>
+            <div class="todo-desc">Example description</div>
+          </div>
+          <div class="todo-options">
+            <button class="todo-complete-btn">
+              <i class="bi bi-check-square"></i>
+            </button>
+            <button class="todo-settings-btn">
+              <i class="bi bi-gear"></i>
+            </button>
+            <div class="todo-settings-container">
+              <button class="edit-todo-text-btn">Edit Text</button>
+              <button class="move-todo-btn">Move Todo</button>
+            </div>
+            <button class="todo-delete-btn">
+              <i class="bi bi-trash3"></i>
+            </button>
+          </div>
+        </div> -->
+      </div>
+    </div>
+
+    <div class="add-todo-container">
+      <button class="close-add-todo-btn">
+        <i class="bi bi-x"></i>
+      </button>
+      <form class="add-todo-form">
+        <h1 class="add-todo-text">Add a Todo</h1>
+        <label>*Todo Name</label>
+        <input
+          type="text"
+          placeholder="Learn React Native"
+          class="add-todo-name"
+        />
+        <label>Todo Description</label>
+        <textarea
+          placeholder="Learn how to create and deploy a React Native app"
+          class="add-todo-desc"
+        ></textarea>
+        <input type="submit" class="add-todo-submit" value="Add Todo" />
+      </form>
     </div>
 
     <script src="./app.js"></script>
