@@ -69,8 +69,10 @@ addTodoAutofill.addEventListener("click", function () {
     addTodoAutofill.checked = false;
     return;
   }
+
   if (addTodoAutofill.checked) {
-    addTodoName.value = "Autofilled!";
+    //addTodoName.value = "Autofilled!";
+    addTodoName.value = loadInfo(addTodoLink.value);
     addTodoDesc.value = "This is an autofilled todo!";
   } else {
     addTodoName.value = "";
@@ -263,7 +265,7 @@ function todoStatusCheck(e) {
 //TESTING GET YOUTUBE THUMBNAIL
 function get_youtube_thumbnail(url, quality) {
   if (url) {
-    var video_id, thumbnail, result;
+    let video_id, thumbnail, result;
     if ((result = url.match(/youtube\.com.*(\?v=|\/embed\/)(.{11})/))) {
       video_id = result.pop();
     } else if ((result = url.match(/youtu.be\/(.{11})/))) {
@@ -275,7 +277,7 @@ function get_youtube_thumbnail(url, quality) {
         quality = "high";
       }
 
-      var quality_key = "maxresdefault"; // Max quality
+      const quality_key = "maxresdefault"; // Max quality
       if (quality == "low") {
         quality_key = "sddefault";
       } else if (quality == "medium") {
@@ -284,10 +286,33 @@ function get_youtube_thumbnail(url, quality) {
         quality_key = "hqdefault";
       }
 
-      var thumbnail =
+      const thumbnail =
         "http://img.youtube.com/vi/" + video_id + "/" + quality_key + ".jpg";
       return thumbnail;
     }
   }
   return "./img/youtube.jpg";
 }
+
+var loadInfo = function (url) {
+  if (url) {
+    let videoId, result;
+    if ((result = url.match(/youtube\.com.*(\?v=|\/embed\/)(.{11})/))) {
+      videoId = result.pop();
+    } else if ((result = url.match(/youtu.be\/(.{11})/))) {
+      videoId = result.pop();
+    }
+
+    const gdata = document.createElement("script");
+    gdata.src =
+      "https://www.googleapis.com/youtube/v3/videos?id=" +
+      videoId +
+      "&key=YOUTUBE_TITLE_API_KEY%20&part=snippet";
+    const body = document.getElementsByTagName("body")[0];
+    body.appendChild(gdata);
+  }
+};
+
+const storeInfo = function (info) {
+  console.log(info.data.title);
+};
