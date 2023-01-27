@@ -1,4 +1,4 @@
-alert('Just click on the "+" icons and insert a YouTube link!');
+//alert('Just click on the "+" icons and insert a YouTube link!');
 
 //SELECTORS
 
@@ -113,5 +113,3 @@ addTodoForm.addEventListener("submit", function (e) {
   addTodoDesc.value = "";
   addTodoAutofill.checked = false;
 });
-
-//FUNCTIONS
