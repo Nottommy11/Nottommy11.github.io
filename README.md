@@ -31,6 +31,9 @@ Users are able to:
 - [ ] Open a new tab of their todo
 - [ ] Open all todos in a new window/group
 - [ ] Have their information at least stored locally
+- [ ] Delete a the tab doesn't delete the todos associated with it. Still saved locally & possibly in a database instead
+- [ ] Responsively display on mobile devices
+- [ ] Upload an image for a todo
 
 ---
 
@@ -45,6 +48,11 @@ This section outlines what I hope to get to with this project.
 - [ ] Automatically get a thumbnail of a saved todo and allow the user to change that thumbnail
 - [ ] Store data in a database
 - [ ] Load todos from bookmarks of chosen browser
+- [ ] Display search results as two columns: Tabs and then Todos
+- [ ] Filter search results based on link type
+- [ ] Autofill the name from other websites besides YouTube
+- [ ] Get a preview of the website from the link to display in the todo
+- [ ] Make the website prettier
 
 ---
 

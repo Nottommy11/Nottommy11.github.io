@@ -24,6 +24,7 @@ function addTab(name) {
   tabDelete.addEventListener("click", tabStatusCheck);
 }
 
+//DELETING A TAB
 function tabStatusCheck(e) {
   const item = e.target;
 

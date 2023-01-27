@@ -341,7 +341,7 @@ label {
 
 .add-todo-container {
   width: 500px;
-  height: 475px;
+  height: 500px;
   background-color: #9f9f9f;
   position: absolute;
   top: 0;
@@ -415,6 +415,13 @@ label {
   border-bottom: 1px solid black;
   background-color: white;
   border-radius: 5px;
+}
+
+.add-todo-image {
+  margin-top: 20px;
+  border: none;
+  border-radius: 5px;
+  color: black;
 }
 
 .add-todo-link,

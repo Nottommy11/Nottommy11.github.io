@@ -4,7 +4,8 @@ alert('Just click on the "+" icons and insert a YouTube link!');
 
 //TABS
 const tabList = document.querySelector(".tab-list");
-const tabButton = document.querySelector(".add-tab-btn");
+const tabItem = document.querySelector(".tab-btn");
+const addTabBtn = document.querySelector(".add-tab-btn");
 const addTabContainer = document.querySelector(".add-tab-container");
 const closeAddTab = document.querySelector(".close-add-tab-btn");
 const addTabForm = document.querySelector(".add-tab-form");
@@ -27,7 +28,7 @@ const todoSettingsBtn = document.querySelector(".todo-settings-btn");
 //EVENT LISTENERS
 
 //TABS
-tabButton.addEventListener("click", function () {
+addTabBtn.addEventListener("click", function () {
   addTabContainer.style.display = "flex";
   addTabName.focus();
 });
@@ -72,6 +73,7 @@ addTodoAutofill.addEventListener("click", function () {
   }
 
   if (addTodoAutofill.checked) {
+    //Would like to hide this, but it's not working through GitHub and requires more work to figure out, but the API key is limited to this website
     const youtubeAPIKey = "AIzaSyBXEUbzPW5RpHxdsxii4a4Ug4vHyyUYc4Y%20";
     //const youtubeAPIKey = YOUTUBE_TITLE_API_KEY
 
