@@ -22,7 +22,7 @@ async function GetYouTubeVideoTitle(videoID, youtubeAPIKey) {
       method: "GET",
     }
   ).catch((error) => {
-    alert("HTTP-Error: " + response.status) + " Video ID invalid.";
+    //alert("HTTP-Error: " + response.status) + " Video ID invalid.";
     const message =
       "An error has occurred: ${response.status}. Video ID invalid.";
     throw new Error(message);
