@@ -40,7 +40,8 @@ Users are able to:
 This section outlines what I hope to get to with this project.
 
 - [ ] Create a Chrome Extension to let users manage their todo list
-- [ ] Get YouTube thumbnails via either an API or some other method
+- [X] Get YouTube thumbnails via either an API or some other method
+- [X] Get YouTube video title via Google(YouTubev3) API
 - [ ] Automatically get a thumbnail of a saved todo and allow the user to change that thumbnail
 - [ ] Store data in a database
 - [ ] Load todos from bookmarks of chosen browser
