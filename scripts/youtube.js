@@ -30,6 +30,7 @@ async function GetYouTubeVideoTitle(videoID, youtubeAPIKey) {
 
   const data = await response.json();
   AutofillYouTubeVideoTitle(data.items[0].snippet.title);
+  AutofillPreviewImg(videoID);
 }
 
 function AutofillYouTubeVideoTitle(data) {
@@ -58,4 +59,9 @@ function getYouTubeThumbnail(videoID, quality) {
       "http://img.youtube.com/vi/" + videoID + "/" + qualityKey + ".jpg";
     return thumbnail;
   }
+}
+
+function AutofillPreviewImg(videoID) {
+  const thumbnail = getYouTubeThumbnail(videoID);
+  displayYouTubePreviewImg(thumbnail);
 }

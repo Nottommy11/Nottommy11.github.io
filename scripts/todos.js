@@ -1,3 +1,20 @@
+function clearAddTodoFileInput(id) {
+  const oldInput = document.querySelector(id);
+
+  const newInput = document.createElement("input");
+
+  newInput.type = "file";
+  //newInput.id = oldInput.id;
+  //newInput.name = oldInput.name;
+  newInput.className = oldInput.className;
+  //newInput.style.cssText = oldInput.style.cssText;
+  newInput.accept = oldInput.accept;
+  newInput.onchange = oldInput.onchange;
+  // TODO: copy any other relevant attributes
+
+  oldInput.parentNode.replaceChild(newInput, oldInput);
+}
+
 //TODOS
 function addTodo(thumbnail, name, desc) {
   //Prevent form from submitting
