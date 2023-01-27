@@ -1,4 +1,4 @@
-//alert('Just click on the "+" icons and insert a YouTube link!');
+alert('Just click on the "+" icons and insert a YouTube link!');
 
 //SELECTORS
 
@@ -42,7 +42,7 @@ addTabForm.addEventListener("submit", function (e) {
   const name = addTabName.value;
 
   if (!name) {
-    //alert("Please enter a tab name!");
+    alert("Please enter a tab name!");
     return;
   }
 
@@ -66,7 +66,7 @@ closeAddTodo.addEventListener("click", function () {
 //AUTOFILL THE TODO NAME WITH YOUTUBE VIDEO TITLE
 addTodoAutofill.addEventListener("click", function () {
   if (addTodoLink.value == "") {
-    //alert("Please enter a link first!");
+    alert("Please enter a link first!");
     addTodoAutofill.checked = false;
     return;
   }
@@ -91,7 +91,7 @@ addTodoForm.addEventListener("submit", function (e) {
   const desc = addTodoDesc.value;
 
   if (!link) {
-    //alert("Please enter a link!");
+    alert("Please enter a link!");
     return;
   }
 
@@ -100,7 +100,7 @@ addTodoForm.addEventListener("submit", function (e) {
   const thumbnail = getYouTubeThumbnail(videoID);
 
   if (!name) {
-    //alert("Please enter a todo name!");
+    alert("Please enter a todo name!");
     return;
   }
 
