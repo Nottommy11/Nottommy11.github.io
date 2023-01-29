@@ -24,14 +24,14 @@ Users are able to:
 - [X] Add new tabs
 - [X] Add new todos
 - [ ] Search their todos by keywords
-- [ ] Navigate their tabs and only see selected todos
+- [X] Navigate their tabs and only see selected todos
 - [X] Mark a todo as completed
 - [X] Delete a todo
 - [ ] Select settings related to their todo
-- [ ] Open a new browser tab of their todo
+- [X] Open a new browser tab of their todo
 - [ ] Open all todos in a new window/group
 - [ ] Have their information at least stored locally
-- [ ] Delete a the tab doesn't delete the todos associated with it. Still saved locally & possibly in a database instead
+- [X] Delete a the tab doesn't delete the todos associated with it. Still saved locally & possibly in a database instead
 - [ ] Responsively display on mobile devices
 - [X] Upload an image for a todo
 
