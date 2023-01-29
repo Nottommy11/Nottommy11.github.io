@@ -1,4 +1,4 @@
-alert('Just click on the "+" icons and insert a YouTube link!');
+//alert('Just click on the "+" icons and insert a YouTube link!');
 
 //SELECTORS
 
@@ -24,7 +24,7 @@ const closeAddTodo = document.querySelector(".close-add-todo-btn");
 const addTodoForm = document.querySelector(".add-todo-form");
 const addTodoAutofill = document.querySelector(".add-todo-autofill");
 const addTodoImg = document.querySelector(".add-todo-img");
-const addTodoPreviewImg = document.getElementById("add-todo-preview-img");
+const addTodoPreviewImg = document.querySelector("#add-todo-preview-img");
 const addTodoLink = document.querySelector(".add-todo-link");
 const addTodoName = document.querySelector(".add-todo-name");
 const addTodoDesc = document.querySelector(".add-todo-desc");
@@ -39,6 +39,16 @@ window.addEventListener("keydown", function (e) {
     addTabContainer.style.display = "none";
     addTodoContainer.style.display = "none";
     modalBg.style.display = "none";
+
+    addTodoPreviewImg.style.display = "none";
+    addTodoPreviewImg.src = "";
+    clearAddTodoFileInput(".add-todo-image");
+
+    addTodoLink.value = "";
+    addTodoName.value = "";
+    addTodoDesc.value = "";
+
+    addTodoAutofill.checked = false;
   }
 });
 
@@ -47,13 +57,16 @@ function displayPreviewImg(event) {
   reader.onload = function () {
     addTodoPreviewImg.src = reader.result;
     thumbnail = reader.result;
+    addTodoPreviewImg.style.display = "flex";
   };
   reader.readAsDataURL(event.target.files[0]);
+  zoomPreviewImg.style.display = "none";
 }
 
 function displayYouTubePreviewImg(youtubeImg) {
   addTodoPreviewImg.src = youtubeImg;
   thumbnail = youtubeImg;
+  zoomPreviewImg.style.display = "none";
 }
 
 //TABS
@@ -66,6 +79,8 @@ addTabBtn.addEventListener("click", function () {
 closeAddTab.addEventListener("click", function () {
   addTabContainer.style.display = "none";
   modalBg.style.display = "none";
+
+  addTabName.value = "";
 });
 
 addTabForm.addEventListener("submit", function (e) {
@@ -96,6 +111,16 @@ todoButton.addEventListener("click", function () {
 closeAddTodo.addEventListener("click", function () {
   addTodoContainer.style.display = "none";
   modalBg.style.display = "none";
+
+  addTodoPreviewImg.style.display = "none";
+  addTodoPreviewImg.src = "";
+  clearAddTodoFileInput(".add-todo-image");
+
+  addTodoLink.value = "";
+  addTodoName.value = "";
+  addTodoDesc.value = "";
+
+  addTodoAutofill.checked = false;
 });
 
 //AUTOFILL THE TODO NAME WITH YOUTUBE VIDEO TITLE
@@ -138,11 +163,14 @@ addTodoForm.addEventListener("submit", function (e) {
 
   addTodo(thumbnail, name, desc);
 
-  addTodoLink.value = "";
   clearAddTodoFileInput(".add-todo-image");
   addTodoPreviewImg.src = "";
+  addTodoPreviewImg.style.display = "none";
+
+  addTodoLink.value = "";
   addTodoName.value = "";
   addTodoDesc.value = "";
+
   addTodoAutofill.checked = false;
 
   addTodoContainer.style.display = "none";

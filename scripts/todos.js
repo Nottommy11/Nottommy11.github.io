@@ -7,7 +7,7 @@ function clearAddTodoFileInput(id) {
   //newInput.id = oldInput.id;
   //newInput.name = oldInput.name;
   newInput.className = oldInput.className;
-  //newInput.style.cssText = oldInput.style.cssText;
+  newInput.style.cssText = oldInput.style.cssText;
   newInput.accept = oldInput.accept;
   newInput.onchange = oldInput.onchange;
   // TODO: copy any other relevant attributes

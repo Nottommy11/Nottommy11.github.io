@@ -444,9 +444,14 @@ label {
 }
 
 #add-todo-preview-img {
+  display: none;
   margin-top: 5px;
   max-width: 90px;
   max-height: 50px;
+  border-radius: 10px;
+  aspect-ratio: 16/9;
+  border: 1px solid black;
+  object-fit: cover;
   cursor: pointer;
   user-select: none;
   transition: all 0.3s ease;
