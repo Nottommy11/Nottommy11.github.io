@@ -5,7 +5,6 @@ function addTab(name) {
 
   const tabItem = document.createElement("li");
   tabItem.innerText = name;
-  tabItem.setAttribute("data-tab-target", "#" + name.toLowerCase());
   tabItem.classList.add("tab");
 
   const tabDelete = document.createElement("button");
@@ -65,6 +64,11 @@ function tabStatusCheck(e) {
   //Animation
   tab.classList.add("tab-fall");
   tab.addEventListener("transitionend", function () {
+    const childrenTodos = document.querySelectorAll("#" + tab.innerText);
+    childrenTodos.forEach(function (todo) {
+      todo.classList.remove("active");
+    });
+
     tabList.removeChild(tab);
   });
 }

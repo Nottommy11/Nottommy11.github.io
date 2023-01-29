@@ -129,7 +129,7 @@ addTabForm.addEventListener("submit", function (e) {
 todoButton.addEventListener("click", function () {
   const activeTab = document.querySelector(".tab.active");
   if (activeTab == null) {
-    alert("Please create a tab first!");
+    alert("Please create or select a tab first!");
     return;
   }
 

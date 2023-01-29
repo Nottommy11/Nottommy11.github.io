@@ -25,7 +25,6 @@ function addTodo(link, thumbnail, name, desc) {
   const todoItem = document.createElement("li");
   todoItem.classList.add("todo");
   todoItem.id = activeTab.innerText.toLowerCase();
-  todoItem.setAttribute("data-tab-content", "");
 
   const todoLink = document.createElement("a");
   todoLink.href = link;
