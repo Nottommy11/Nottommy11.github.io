@@ -16,7 +16,7 @@ function clearAddTodoFileInput(id) {
 }
 
 //TODOS
-function addTodo(thumbnail, name, desc) {
+function addTodo(link, thumbnail, name, desc) {
   //Prevent form from submitting
   event.preventDefault();
 
@@ -27,10 +27,16 @@ function addTodo(thumbnail, name, desc) {
   todoItem.id = activeTab.innerText.toLowerCase();
   todoItem.setAttribute("data-tab-content", "");
 
+  const todoLink = document.createElement("a");
+  todoLink.href = link;
+  todoLink.classList.add("todo-link");
+  todoLink.target = "_blank";
+  todoItem.appendChild(todoLink);
+
   const todoImg = document.createElement("img");
   todoImg.src = thumbnail;
   todoImg.classList.add("todo-img");
-  todoItem.appendChild(todoImg);
+  todoLink.appendChild(todoImg);
 
   const todoTextContainer = document.createElement("div");
   todoTextContainer.classList.add("todo-text-container");

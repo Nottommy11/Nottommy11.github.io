@@ -67,7 +67,7 @@ function displayPreviewImg(event) {
 function displayYouTubePreviewImg(youtubeImg) {
   addTodoPreviewImg.src = youtubeImg;
   thumbnail = youtubeImg;
-  zoomPreviewImg.style.display = "none";
+  addTodoPreviewImg.style.display = "flex";
 }
 
 //TABS
@@ -195,7 +195,7 @@ addTodoForm.addEventListener("submit", function (e) {
     thumbnail = "../img/youtube.jpg";
   }
 
-  addTodo(thumbnail, name, desc);
+  addTodo(link, thumbnail, name, desc);
 
   clearAddTodoFileInput(".add-todo-image");
   addTodoPreviewImg.src = "";
