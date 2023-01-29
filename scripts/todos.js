@@ -20,8 +20,12 @@ function addTodo(thumbnail, name, desc) {
   //Prevent form from submitting
   event.preventDefault();
 
-  const todoItem = document.createElement("div");
-  todoItem.classList.add("todo-item");
+  const activeTab = document.querySelector(".tab.active");
+
+  const todoItem = document.createElement("li");
+  todoItem.classList.add("todo");
+  todoItem.id = activeTab.innerText.toLowerCase();
+  todoItem.setAttribute("data-tab-content", "");
 
   const todoImg = document.createElement("img");
   todoImg.src = thumbnail;
@@ -85,6 +89,8 @@ function addTodo(thumbnail, name, desc) {
   todoDeleteBtn.appendChild(deleteIcon);
 
   todoList.appendChild(todoItem);
+
+  todoItem.classList.add("active");
 
   todoDeleteBtn.addEventListener("click", todoStatusCheck);
   todoCompleteBtn.addEventListener("click", todoStatusCheck);

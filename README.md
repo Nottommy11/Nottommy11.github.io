@@ -53,6 +53,8 @@ This section outlines what I hope to get to with this project.
 - [ ] Autofill the name from other websites besides YouTube
 - [ ] Get a preview of the website from the link to display in the todo
 - [ ] Make the website prettier
+- [ ] Add a dashboard for closed and open tabs
+- [ ] Add groups for tabs (Like Chrome's groups)
 
 ---
 

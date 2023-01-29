@@ -7,8 +7,8 @@ let thumbnail;
 
 //TABS
 const tabList = document.querySelector(".tab-list");
-const tabItem = document.querySelector(".tab-btn");
-const tabName = document.querySelector(".tab-item");
+const tabs = document.querySelectorAll("[data-tab-target]");
+const tabName = document.querySelector(".tab");
 const addTabBtn = document.querySelector(".add-tab-btn");
 const addTabContainer = document.querySelector(".add-tab-container");
 const closeAddTab = document.querySelector(".close-add-tab-btn");
@@ -16,6 +16,8 @@ const addTabForm = document.querySelector(".add-tab-form");
 const addTabName = document.querySelector(".add-tab-name");
 
 //TODOS
+const tabContents = document.querySelectorAll("[data-tab-content]");
+
 const todoList = document.querySelector(".todo-list");
 
 const todoButton = document.querySelector(".add-todo-btn");
@@ -60,7 +62,6 @@ function displayPreviewImg(event) {
     addTodoPreviewImg.style.display = "flex";
   };
   reader.readAsDataURL(event.target.files[0]);
-  zoomPreviewImg.style.display = "none";
 }
 
 function displayYouTubePreviewImg(youtubeImg) {
@@ -70,6 +71,21 @@ function displayYouTubePreviewImg(youtubeImg) {
 }
 
 //TABS
+tabs.forEach((tab) => {
+  tab.addEventListener("click", () => {
+    const target = document.querySelector(tab.dataset.tabTarget);
+    tabContents.forEach((tabContent) => {
+      tabContent.classList.remove("active");
+    });
+    tab.forEach((tab) => {
+      tab.classList.remove("active");
+    });
+    tab.classList.add("active");
+    target.classList.add("active");
+    console.log("HERE");
+  });
+});
+
 addTabBtn.addEventListener("click", function () {
   addTabContainer.style.display = "flex";
   modalBg.style.display = "flex";
@@ -93,6 +109,14 @@ addTabForm.addEventListener("submit", function (e) {
     return;
   }
 
+  const tabNames = document.querySelectorAll(".tab");
+  tabNames.forEach((tabName) => {
+    if (tabName.innerText.toLowerCase() == name.toLowerCase()) {
+      alert("Tab name already exists!");
+      return;
+    }
+  });
+
   addTab(name);
 
   addTabContainer.style.display = "none";
@@ -103,6 +127,12 @@ addTabForm.addEventListener("submit", function (e) {
 
 //TODOS
 todoButton.addEventListener("click", function () {
+  const activeTab = document.querySelector(".tab.active");
+  if (activeTab == null) {
+    alert("Please create a tab first!");
+    return;
+  }
+
   addTodoContainer.style.display = "flex";
   modalBg.style.display = "flex";
   addTodoLink.focus();
@@ -159,6 +189,10 @@ addTodoForm.addEventListener("submit", function (e) {
   if (!name) {
     alert("Please enter a todo name!");
     return;
+  }
+
+  if (!thumbnail) {
+    thumbnail = "../img/youtube.jpg";
   }
 
   addTodo(thumbnail, name, desc);
