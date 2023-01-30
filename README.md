@@ -30,7 +30,7 @@ Users are able to:
 - [ ] Select settings related to their todo
 - [X] Open a new browser tab of their todo
 - [ ] Open all todos in a new window/group
-- [ ] Have their information at least stored locally
+- [X] Have their information at least stored locally
 - [X] Delete a the tab doesn't delete the todos associated with it. Still saved locally & possibly in a database instead
 - [ ] Responsively display on mobile devices
 - [X] Upload an image for a todo

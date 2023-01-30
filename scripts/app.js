@@ -1,9 +1,12 @@
 //alert('Just click on the "+" icons and insert a YouTube link!');
 
 //SELECTORS
-
 const modalBg = document.querySelector(".modal-bg");
 let thumbnail;
+
+const tl = gsap.timeline({
+  defaults: { duration: 0.25, ease: "power2.inOut" },
+});
 
 //TABS
 const tabList = document.querySelector(".tab-list");
@@ -38,63 +41,35 @@ const todoSettingsBtn = document.querySelector(".todo-settings-btn");
 //CLOSE MODALS WITH ESCAPE KEY
 window.addEventListener("keydown", function (e) {
   if (e.key === "Escape") {
-    addTabContainer.style.display = "none";
-    addTodoContainer.style.display = "none";
-    modalBg.style.display = "none";
+    if (addTodoContainer.style.display == "flex") {
+      hideAddTodo();
+      addTodoPreviewImg.style.display = "none";
+      addTodoPreviewImg.src = "";
+      clearAddTodoFileInput(".add-todo-image");
 
-    addTodoPreviewImg.style.display = "none";
-    addTodoPreviewImg.src = "";
-    clearAddTodoFileInput(".add-todo-image");
+      addTodoLink.value = "";
+      addTodoName.value = "";
+      addTodoDesc.value = "";
 
-    addTodoLink.value = "";
-    addTodoName.value = "";
-    addTodoDesc.value = "";
+      addTodoAutofill.checked = false;
+    }
 
-    addTodoAutofill.checked = false;
+    if (addTabContainer.style.display == "flex") {
+      hideAddTab();
+      addTabName.value = "";
+    }
   }
 });
 
-function displayPreviewImg(event) {
-  var reader = new FileReader();
-  reader.onload = function () {
-    addTodoPreviewImg.src = reader.result;
-    thumbnail = reader.result;
-    addTodoPreviewImg.style.display = "flex";
-  };
-  reader.readAsDataURL(event.target.files[0]);
-}
-
-function displayYouTubePreviewImg(youtubeImg) {
-  addTodoPreviewImg.src = youtubeImg;
-  thumbnail = youtubeImg;
-  addTodoPreviewImg.style.display = "flex";
-}
-
 //TABS
-tabs.forEach((tab) => {
-  tab.addEventListener("click", () => {
-    const target = document.querySelector(tab.dataset.tabTarget);
-    tabContents.forEach((tabContent) => {
-      tabContent.classList.remove("active");
-    });
-    tab.forEach((tab) => {
-      tab.classList.remove("active");
-    });
-    tab.classList.add("active");
-    target.classList.add("active");
-    console.log("HERE");
-  });
-});
-
 addTabBtn.addEventListener("click", function () {
-  addTabContainer.style.display = "flex";
-  modalBg.style.display = "flex";
+  displayAddTab();
+
   addTabName.focus();
 });
 
 closeAddTab.addEventListener("click", function () {
-  addTabContainer.style.display = "none";
-  modalBg.style.display = "none";
+  hideAddTab();
 
   addTabName.value = "";
 });
@@ -119,8 +94,7 @@ addTabForm.addEventListener("submit", function (e) {
 
   addTab(name);
 
-  addTabContainer.style.display = "none";
-  modalBg.style.display = "none";
+  hideAddTab();
 
   addTabName.value = "";
 });
@@ -133,14 +107,17 @@ todoButton.addEventListener("click", function () {
     return;
   }
 
-  addTodoContainer.style.display = "flex";
-  modalBg.style.display = "flex";
-  addTodoLink.focus();
+  displayAddTodo();
+
+  while (addTodoContainer.style.display == "flex") {
+    console.log("waiting");
+
+    addTodoLink.focus();
+  }
 });
 
 closeAddTodo.addEventListener("click", function () {
-  addTodoContainer.style.display = "none";
-  modalBg.style.display = "none";
+  hideAddTodo();
 
   addTodoPreviewImg.style.display = "none";
   addTodoPreviewImg.src = "";
@@ -197,6 +174,47 @@ addTodoForm.addEventListener("submit", function (e) {
 
   addTodo(link, thumbnail, name, desc);
 
+  tl.fromTo(
+    ".add-todo-container",
+    { display: "flex", opacity: 1, y: 0 },
+    { opacity: 0, y: -50, display: "none" }
+  );
+
+  tl.fromTo(
+    ".loading-circle",
+    { rotation: "0deg" },
+    {
+      display: "flex",
+      rotation: "360deg",
+      repeat: 1,
+      ease: "none",
+      duration: 1,
+    }
+  );
+
+  tl.to("#bar", { display: "none", opacity: 0, duration: 0.25 }, "<85%");
+
+  tl.to("#circle", { fill: "rgb(34, 218, 50)", opacity: 1 });
+  tl.to(".modal-check", { display: "flex", opacity: 1 }, "<");
+  tl.to(".modal-added-text", { display: "flex", opacity: 1 }, "<");
+
+  tl.to(".modal-bg", { duration: 1 });
+
+  tl.to(".loading-circle", { display: "none", opacity: 0 });
+
+  tl.to(".modal-check", { display: "none", opacity: 0 }, "<");
+  tl.to(".modal-added-text", { display: "none", opacity: 0 }, "<");
+
+  tl.fromTo(
+    ".modal-bg",
+    { display: "flex", opacity: 1 },
+    { opacity: 0, display: "none" },
+    "<"
+  );
+
+  tl.to("#bar", { display: "flex" });
+  tl.to("#circle", { fill: "black", opacity: 0.2 });
+
   clearAddTodoFileInput(".add-todo-image");
   addTodoPreviewImg.src = "";
   addTodoPreviewImg.style.display = "none";
@@ -206,7 +224,4 @@ addTodoForm.addEventListener("submit", function (e) {
   addTodoDesc.value = "";
 
   addTodoAutofill.checked = false;
-
-  addTodoContainer.style.display = "none";
-  modalBg.style.display = "none";
 });
