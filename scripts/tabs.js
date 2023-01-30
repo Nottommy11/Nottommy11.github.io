@@ -133,6 +133,8 @@ function getTabs() {
   tabs.forEach(function (tab) {
     createTab(tab);
   });
+  const activeTab = document.querySelector(".tab");
+  activeTab.classList.add("active");
 }
 
 function removeLocalTabs(tab) {

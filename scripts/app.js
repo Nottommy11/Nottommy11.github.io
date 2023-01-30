@@ -212,7 +212,8 @@ addTodoForm.addEventListener("submit", function (e) {
     "<"
   );
 
-  tl.to("#bar", { display: "flex" });
+  tl.to(".loading-circle", { opacity: 1 });
+  tl.to("#bar", { display: "flex", opacity: 1 });
   tl.to("#circle", { fill: "black", opacity: 0.2 });
 
   clearAddTodoFileInput(".add-todo-image");

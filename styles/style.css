@@ -19,7 +19,6 @@ body {
 
 input,
 textarea {
-  /*appearance: none;*/
   outline: none;
   border: none;
   background-color: transparent;

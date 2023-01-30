@@ -152,9 +152,14 @@ function addTodo(link, thumbnail, name, desc) {
 }
 
 function createLocalTodo(tab, link, thumbnail, name, desc) {
+  const activeTab = document.querySelector(".tab.active");
+
   const todoItem = document.createElement("li");
   todoItem.classList.add("todo");
   todoItem.id = tab;
+  tab === activeTab.innerText.toLowerCase()
+    ? todoItem.classList.add("active")
+    : "";
 
   const todoLink = document.createElement("a");
   todoLink.href = link;
