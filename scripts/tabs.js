@@ -135,6 +135,11 @@ function getTabs() {
   });
   const activeTab = document.querySelector(".tab");
   activeTab.classList.add("active");
+
+  const todos = document.querySelectorAll("#" + activeTab.innerText);
+  todos.forEach(function (todo) {
+    todo.classList.add("active");
+  });
 }
 
 function removeLocalTabs(tab) {
